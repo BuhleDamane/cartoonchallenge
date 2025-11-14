@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpongeBob SquarePants - The Iconic Character</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(180deg, #87CEEB 0%, #4A9FD8 50%, #F4E4C1 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%23FFD700" stroke="%23000" stroke-width="2"/></svg>') 12 12, auto;
+        }
+
+        a, button {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%23FF6B35" stroke="%23000" stroke-width="2"/></svg>') 12 12, pointer;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 78, 137, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.1);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #FF6B35;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            z-index: 999;
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background: #FFD700;
+        }
+
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(173, 216, 230, 0.3));
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 8s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-100px) translateX(50px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            text-align: center;
+            padding: 120px 20px 60px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 4em;
+            color: #FFD700;
+            text-shadow: 4px 4px 0 #FF6B35, 8px 8px 0 #004E89;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+            letter-spacing: 3px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .character-img {
+            width: 400px;
+            height: 400px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="50" y="40" width="100" height="120" fill="%23FFD700" stroke="%23000" stroke-width="3"/><circle cx="75" cy="70" r="15" fill="%23fff" stroke="%23000" stroke-width="2"/><circle cx="125" cy="70" r="15" fill="%23fff" stroke="%23000" stroke-width="2"/><circle cx="75" cy="70" r="8" fill="%2300A8E8"/><circle cx="125" cy="70" r="8" fill="%2300A8E8"/><path d="M 70 100 Q 100 120 130 100" fill="none" stroke="%23000" stroke-width="3"/><line x1="50" y1="160" x2="50" y2="200" stroke="%23000" stroke-width="3"/><line x1="150" y1="160" x2="150" y2="200" stroke="%23000" stroke-width="3"/><circle cx="50" cy="195" r="12" fill="%23000"/><circle cx="150" cy="195" r="12" fill="%23000"/></svg>') center/contain no-repeat;
+            animation: wiggle 3s infinite;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s;
+        }
+
+        .character-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+
+        .info-section h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            color: #FF6B35;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0 #FFD700;
+        }
+
+        .info-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .timeline-section {
+            background: linear-gradient(135deg, #FF6B35 0%, #FFD700 100%);
+            padding: 80px 20px;
+            margin: 40px 0;
+        }
+
+        .timeline-section h2 {
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            font-size: 3.5em;
+            color: #fff;
+            margin-bottom: 60px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: #fff;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 4px solid #004E89;
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            color: #004E89;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 20px;
+            margin: 40px 0;
+        }
+
+        .fun-facts h2 {
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            font-size: 3.5em;
+            color: #fff;
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fact-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .fact-card h3 {
+            font-family: 'Bangers', cursive;
+            color: #FF6B35;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .fact-card p {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 80px 20px;
+            margin: 40px 0;
+        }
+
+        .quiz-section h2 {
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            font-size: 3.5em;
+            color: #004E89;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-question {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .quiz-result {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #FFD700 0%, #FF6B35 100%);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .quiz-result h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .quiz-result p {
+            font-size: 1.3em;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 80px 20px;
+            margin: 40px 0;
+        }
+
+        .story-section h2 {
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            font-size: 3.5em;
+            color: #fff;
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-content h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2em;
+            color: #f5576c;
+            margin-bottom: 20px;
+        }
+
+        .story-content p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .story-highlight {
+            background: #FFD700;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border-left: 5px solid #FF6B35;
+        }
+
+        .story-highlight p {
+            font-style: italic;
+            font-size: 1.2em;
+            color: #004E89;
+            margin: 0;
+        }
+
+        .quote-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .quote {
+            font-family: 'Bangers', cursive;
+            font-size: 2.8em;
+            color: #004E89;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            background: linear-gradient(45deg, #FF6B35, #FFD700);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border: none;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 2px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        footer {
+            position: relative;
+            text-align: center;
+            padding: 100px 20px 40px;
+            background: linear-gradient(180deg, #87CEEB 0%, #4A9FD8 50%, #5DADE2 100%);
+            color: #004E89;
+            font-size: 1.1em;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: repeating-linear-gradient(
+                90deg,
+                #c4a574 0px,
+                #d4b896 10px,
+                #a89165 20px,
+                #c4a574 30px
+            );
+            border-top: 3px solid #8b7355;
+            border-bottom: 4px solid #8b7355;
+        }
+
+        .ocean-creature {
+            position: absolute;
+            font-size: 2.5em;
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        @keyframes swimRight {
+            0% {
+                left: -100px;
+                transform: scaleX(1);
+            }
+            100% {
+                left: calc(100% + 100px);
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes swimLeft {
+            0% {
+                right: -100px;
+                transform: scaleX(-1);
+            }
+            100% {
+                right: calc(100% + 100px);
+                transform: scaleX(-1);
+            }
+        }
+
+        footer p {
+            margin: 10px 0;
+            position: relative;
+            z-index: 3;
+        }
+
+        footer a {
+            color: #FF6B35;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #FFD700;
+        }
+
+        .social-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .social-links a {
+            color: #FF6B35;
+            font-size: 1.5em;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8em; }
+            nav ul { gap: 15px; padding: 0 10px; }
+            nav a { font-size: 1em; }
+            .character-img { width: 280px; height: 280px; }
+            .info-section { padding: 30px 20px; }
+            .quote { font-size: 1.8em; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; margin-left: 0 !important; text-align: left !important; padding-left: 60px !important; padding-right: 0 !important; }
+            .timeline-item::before { left: 11px !important; }
+            .quiz-container { padding: 25px; }
+            .story-content { padding: 30px 20px; }
+        }
+
+        .sound-toggle {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            background: #FFD700;
+            color: #004E89;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .sound-toggle:hover {
+            transform: scale(1.1);
+            background: #FF6B35;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#timeline">Journey</a></li>
+            <li><a href="#facts">Fun Facts</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#story">My Story</a></li>
+        </ul>
+    </nav>
+
+    <button class="sound-toggle" onclick="toggleSound()" title="Toggle Sound">🔊</button>
+    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <header id="home">
+        <h1>🧽 SpongeBob SquarePants 🧽</h1>
+        <p class="tagline">"I'm Ready, I'm Ready, I'm Ready!"</p>
+    </header>
+
+    <div class="container">
+        <div class="hero fade-in">
+            <div class="character-img"></div>
+            <div class="info-section">
+                <h2>Who Lives in a Pineapple?</h2>
+                <p>SpongeBob SquarePants is the eternally optimistic, yellow sea sponge who lives in a pineapple under the sea in Bikini Bottom.</p>
+                <p>Since his debut in 1999, SpongeBob has become one of the most beloved and iconic cartoon characters of all time, bringing joy and laughter to millions around the world.</p>
+                <p>With his infectious laugh, childlike enthusiasm, and unwavering friendship with Patrick Star, SpongeBob teaches us that happiness is a choice and friendship is everything!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline-section fade-in" id="timeline">
+        <h2>🌊 SpongeBob's Journey 🌊</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1999 - The Beginning</h3>
+                    <p>SpongeBob SquarePants premiered on Nickelodeon on May 1, 1999. Created by marine biologist Stephen Hillenburg, the show quickly became a cultural phenomenon.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2004 - Big Screen Debut</h3>
+                    <p>The SpongeBob SquarePants Movie hit theaters, earning over $140 million worldwide and solidifying SpongeBob as a global icon.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2009 - 10th Anniversary</h3>
+                    <p>SpongeBob celebrated a decade of laughter with special episodes and became the most-distributed property of MTV Networks.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2015-Present - Meme Legend</h3>
+                    <p>SpongeBob became the king of internet memes, with scenes like "Mocking SpongeBob" and "Imagination" becoming viral sensations across social media.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fun-facts fade-in" id="facts">
+        <h2>⭐ Fun Facts ⭐</h2>
+        <div class="facts-grid">
+            <div class="fact-card">
+                <h3>🍔 Fry Cook Extraordinaire</h3>
+                <p>SpongeBob works at the Krusty Krab and makes the best Krabby Patties in Bikini Bottom. He's won Employee of the Month 374 consecutive times!</p>
+            </div>
+            <div class="fact-card">
+                <h3>🎓 Boating School</h3>
+                <p>Despite countless attempts, SpongeBob has never passed his boating test. Mrs. Puff has become both his teacher and his greatest challenge!</p>
+            </div>
+            <div class="fact-card">
+                <h3>🐌 Gary the Snail</h3>
+                <p>His pet snail Gary is actually incredibly intelligent and often serves as the voice of reason, communicating only through meows.</p>
+            </div>
+            <div class="fact-card">
+                <h3>🌟 Jellyfish Fields</h3>
+                <p>SpongeBob's favorite hobby is jellyfishing with his best friend Patrick. He even plays the jellyfishing net like a musical instrument!</p>
+            </div>
+            <div class="fact-card">
+                <h3>🏠 Pineapple House</h3>
+                <p>His home is a fully furnished pineapple that he found already grown. It's decorated with his unique taste and includes a library and pet rock collection.</p>
+            </div>
+            <div class="fact-card">
+                <h3>🎭 Renaissance Sponge</h3>
+                <p>SpongeBob is multi-talented: he plays clarinet (poorly as Squidward would say), karate with Sandy, and has an impressive bubble-blowing technique!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-section fade-in" id="quiz">
+        <h2>🎮 Which SpongeBob Character Are You? 🎮</h2>
+        <div class="quiz-container">
+            <div id="quizContent">
+                <p class="quiz-question">What's your ideal way to spend a Saturday?</p>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="selectAnswer('spongebob')">Jellyfishing with friends and making Krabby Patties!</button>
+                    <button class="quiz-option" onclick="selectAnswer('patrick')">Eating ice cream and sleeping under a rock</button>
+                    <button class="quiz-option" onclick="selectAnswer('squidward')">Playing my clarinet in peace and quiet</button>
+                    <button class="quiz-option" onclick="selectAnswer('sandy')">Practicing karate and working on science experiments</button>
+                </div>
+            </div>
+            <div class="quiz-result" id="quizResult">
+                <h3 id="resultCharacter"></h3>
+                <p id="resultDescription"></p>
+                <button class="cta-button" onclick="resetQuiz()">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="story-section fade-in" id="story">
+        <h2>💛 Why SpongeBob Matters to Me 💛</h2>
+        <div class="story-content">
+            <h3>A Personal Connection</h3>
+            <p>Growing up, SpongeBob wasn't just a cartoon—it was a daily dose of pure joy and optimism. Every episode reminded me that it's okay to be enthusiastic, to be yourself, and to find happiness in the little things.</p>
+            <p>What struck me most was SpongeBob's unwavering positivity. Even when things went wrong, even when Squidward was grumpy, even when he failed his boating test for the millionth time, SpongeBob never lost his smile or his hope.</p>
+            <p>In a world that often tells us to "grow up" and be serious, SpongeBob taught me that maintaining childlike wonder and spreading joy to others is not just okay—it's a superpower.</p>
+            <div class="story-highlight">
+                <p><strong>YOUR STORY GOES HERE!</strong> Replace this text with your personal connection to SpongeBob. What episode made you laugh the hardest? What lesson did you learn? How has this character impacted your life?</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote-section fade-in">
+        <blockquote class="quote">
+            "The inner machinations of my mind are an enigma."
+        </blockquote>
+        <p style="font-size: 1.8em; margin-top: 40px; color: #FF6B35; font-weight: bold;">
+            - Patrick Star
+        </p>
+        <p style="font-size: 1.5em; margin-top: 30px; color: #004E89;">
+            "Can you feel it, Mr. Krabs?" 🦀
+        </p>
+        <a href="#home" class="cta-button">Back to the Top!</a>
+    </div>
+
+    <footer>
+        <div class="ocean-creature" id="fish1" style="top: 90px;">🐠</div>
+        <div class="ocean-creature" id="fish2" style="top: 120px;">🐟</div>
+        <div class="ocean-creature" id="fish3" style="top: 150px;">🦈</div>
+        <div class="ocean-creature" id="fish4" style="top: 100px;">🐡</div>
+        <div class="ocean-creature" id="fish5" style="top: 140px;">🦀</div>
+        <div class="ocean-creature" id="fish6" style="top: 110px;">🦞</div>
+        <div class="ocean-creature" id="fish7" style="top: 130px;">🦑</div>
+        <div class="ocean-creature" id="fish8" style="top: 95px;">🐙</div>
+        <div class="ocean-creature" id="fish9" style="top: 125px;">🐢</div>
+        <div class="ocean-creature" id="fish10" style="top: 105px;">🦭</div>
+        
+        <div class="social-links">
+            <a href="#" title="Share on Twitter">🐦</a>
+            <a href="#" title="Share on Facebook">📘</a>
+            <a href="#" title="Share on Instagram">📷</a>
+        </div>
+        <p>Created with 💛 for the SheCodes Iconic Cartoon Character Challenge</p>
+        <p>SpongeBob SquarePants © Nickelodeon | November 2025</p>
+        <p style="margin-top: 20px; font-size: 0.9em;">Made by <strong>Buhle Damane</strong> | <a href="https://github.com/BuhleDamane">GitHub</a></p>
+    </footer>
+
+    <script>
+      
+        function createBubbles() {
+            const numBubbles = 20;
+            for (let i = 0; i < numBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.top = Math.random() * 100 + '%';
+                bubble.style.animationDelay = Math.random() * 8 + 's';
+                bubble.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                document.body.appendChild(bubble);
+            }
+        }
+
+        createBubbles();
+
+        function animateCreatures() {
+            const creatures = [
+                { id: 'fish1', duration: 20, delay: 0 },
+                { id: 'fish2', duration: 25, delay: 3 },
+                { id: 'fish3', duration: 18, delay: 6 },
+                { id: 'fish4', duration: 22, delay: 9 },
+                { id: 'fish5', duration: 28, delay: 12 },
+                { id: 'fish6', duration: 24, delay: 15 },
+                { id: 'fish7', duration: 19, delay: 2 },
+                { id: 'fish8', duration: 26, delay: 5 },
+                { id: 'fish9', duration: 21, delay: 8 },
+                { id: 'fish10', duration: 23, delay: 11 }
+            ];
+
+            creatures.forEach(creature => {
+                const element = document.getElementById(creature.id);
+                if (element) {
+                    setTimeout(() => {
+                        swimCreature(element, creature.duration);
+                    }, creature.delay * 1000);
+                }
+            });
+        }
+
+        function swimCreature(element, duration) {
+            const swimRight = Math.random() > 0.5;
+            
+            if (swimRight) {
+                element.style.left = '-100px';
+                element.style.right = 'auto';
+                element.style.transform = 'scaleX(1)';
+            } else {
+                element.style.right = '-100px';
+                element.style.left = 'auto';
+                element.style.transform = 'scaleX(-1)';
+            }
+
+            element.style.transition = `all ${duration}s linear`;
+
+            setTimeout(() => {
+                if (swimRight) {
+                    element.style.left = 'calc(100% + 100px)';
+                } else {
+                    element.style.right = 'calc(100% + 100px)';
+                }
+
+                setTimeout(() => {
+                    swimCreature(element, duration);
+                }, duration * 1000);
+            }, 100);
+        }
+
+        animateCreatures();
+
+        function createFooterBubbles() {
+            const footer = document.querySelector('footer');
+            const numBubbles = 15;
+            for (let i = 0; i < numBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.bottom = Math.random() * 100 + '%';
+                bubble.style.top = 'auto';
+                bubble.style.animationDelay = Math.random() * 8 + 's';
+                bubble.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                footer.appendChild(bubble);
+            }
+        }
+
+        createFooterBubbles();
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        const quizResults = {
+            spongebob: {
+                character: "You're SpongeBob! 🧽",
+                description: "You're optimistic, enthusiastic, and always ready for adventure! Your infectious positivity brightens everyone's day, and you find joy in the simplest things. Keep spreading that happiness!"
+            },
+            patrick: {
+                character: "You're Patrick! ⭐",
+                description: "You're laid-back, loyal, and a true friend! You might not always know what's going on, but your heart is always in the right place. Your simple wisdom often contains profound truths!"
+            },
+            squidward: {
+                character: "You're Squidward! 🎭",
+                description: "You're sophisticated, artistic, and appreciate the finer things in life. You value your alone time and personal space. Your sarcastic wit is legendary, and deep down, you care more than you let on!"
+            },
+            sandy: {
+                character: "You're Sandy! 🐿️",
+                description: "You're smart, strong, and always up for a challenge! You combine brains with brawn and aren't afraid to try new things. Your Texas pride and scientific mind make you unstoppable!"
+            }
+        };
+
+        function selectAnswer(character) {
+            const result = quizResults[character];
+            document.getElementById('resultCharacter').textContent = result.character;
+            document.getElementById('resultDescription').textContent = result.description;
+            document.getElementById('quizContent').style.display = 'none';
+            document.getElementById('quizResult').style.display = 'block';
+        }
+
+        function resetQuiz() {
+            document.getElementById('quizContent').style.display = 'block';
+            document.getElementById('quizResult').style.display = 'none';
+        }
+
+        let soundEnabled = true;
+        const soundButton = document.querySelector('.sound-toggle');
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            soundButton.textContent = soundEnabled ? '🔊' : '🔇';
+            if (soundEnabled) {
+                playBubbleSound();
+            }
+        }
+
+        function playBubbleSound() {
+            if (!soundEnabled) return;
+            
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        document.querySelectorAll('button, a').forEach(element => {
+            element.addEventListener('click', playBubbleSound);
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.fact-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) rotate(' + (Math.random() * 4 - 2) + 'deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                activateEasterEgg();
+            }
+        });
+
+        function activateEasterEgg() {
+            alert("🎉 I'M READY! I'M READY! I'M READY! 🎉\n\nYou found the secret Krabby Patty formula!");
+            createBubbles();
+            document.body.style.animation = 'rainbow 3s linear infinite';
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        console.log('🧽 Are you ready, kids? 🧽');
+        console.log('👨‍👩‍👧‍👦 Aye aye, captain! 👨‍👩‍👧‍👦');
+        console.log("🎵 I can't hear you! 🎵");
+    </script>
+</body>
+</html>
